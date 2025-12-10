@@ -38,8 +38,6 @@ const ProductsSection = () => {
     <section className="pb-12 sm:pb-16 bg-white">
       <div className="max-w-[1211px] mx-auto px-4 sm:px-6">
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
-
-   
           <div className="w-full lg:w-64 space-y-5 sm:space-y-6">
             <div>
               <h3 className="font-bold text-base sm:text-lg text-[#3d3d3d] mb-3 sm:mb-4">
@@ -58,7 +56,9 @@ const ProductsSection = () => {
                   ["Accessories", 18],
                 ].map(([name, count]) => (
                   <li key={name} className="flex justify-between">
-                    <a href="#" className="text-[#3d3d3d] hover:text-green-600">{name}</a>
+                    <a href="#" className="text-[#3d3d3d] hover:text-green-600">
+                      {name}
+                    </a>
                     <span>({count})</span>
                   </li>
                 ))}
@@ -97,7 +97,9 @@ const ProductsSection = () => {
                   ["Large", 78],
                 ].map(([name, count]) => (
                   <li key={name} className="flex justify-between">
-                    <a href="#" className="text-[#3d3d3d] hover:text-green-600">{name}</a>
+                    <a href="#" className="text-[#3d3d3d] hover:text-green-600">
+                      {name}
+                    </a>
                     <span>({count})</span>
                   </li>
                 ))}
@@ -113,17 +115,21 @@ const ProductsSection = () => {
             </div>
           </div>
 
-    
           <div className="flex-1">
-   
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mb-5 sm:mb-6">
               <div className="flex flex-wrap gap-3">
-                <span className="font-bold text-xs sm:text-sm text-[#3d3d3d]">All Plants</span>
-                <span className="text-gray-500 text-xs sm:text-sm">New Arrivals</span>
+                <span className="font-bold text-xs sm:text-sm text-[#3d3d3d]">
+                  All Plants
+                </span>
+                <span className="text-gray-500 text-xs sm:text-sm">
+                  New Arrivals
+                </span>
                 <span className="text-gray-500 text-xs sm:text-sm">Sale</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] sm:text-xs text-[#3d3d3d]">Sort by:</span>
+                <span className="text-[10px] sm:text-xs text-[#3d3d3d]">
+                  Sort by:
+                </span>
                 <select className="border border-gray-300 rounded px-2 py-1 text-[10px] sm:text-xs">
                   <option>Default sorting</option>
                   <option>Price: Low to High</option>
@@ -135,11 +141,16 @@ const ProductsSection = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
               {products.map((product) => {
-                const isFavorite = favorites.some(fav => fav.id === product.id);
-                const isInCart = cart.some(item => item.id === product.id);
+                const isFavorite = favorites.some(
+                  (fav) => fav.id === product.id
+                );
+                const isInCart = cart.some((item) => item.id === product.id);
 
                 return (
-                  <div key={product.id} className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+                  <div
+                    key={product.id}
+                    className="bg-white p-3 sm:p-4 rounded-lg shadow-sm"
+                  >
                     <div className="relative mb-3 sm:mb-4 group overflow-hidden">
                       <div className="transition-transform duration-300 group-hover:-translate-y-2 sm:group-hover:-translate-y-3">
                         <img
@@ -149,21 +160,34 @@ const ProductsSection = () => {
                         />
                       </div>
 
-                      <div className="flex justify-center gap-1.5 sm:gap-2 opacity-0 max-h-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-300 mt-2">
-          
+                      <div
+                        className="
+    flex justify-center gap-1.5 sm:gap-2
+    opacity-0 max-h-0
+    group-hover:max-h-20 group-hover:opacity-100
+    group-active:max-h-20 group-active:opacity-100
+    group-focus-within:max-h-20 group-focus-within:opacity-100
+    transition-all duration-300 mt-2
+  "
+                      >
                         <button
                           onClick={(e) => {
                             e.preventDefault();
                             if (!isInCart) addToCart(product);
                           }}
                           className={`px-2 py-1 cursor-pointer rounded text-white text-xs sm:text-sm transition-colors ${
-                            isInCart ? "bg-green-600" : "bg-gray-500 hover:bg-gray-600"
+                            isInCart
+                              ? "bg-green-600"
+                              : "bg-gray-500 hover:bg-gray-600"
                           }`}
                         >
-                          {isInCart ? "Added" : <i className="fa-solid fa-cart-shopping"></i>}
+                          {isInCart ? (
+                            "Added"
+                          ) : (
+                            <i className="fa-solid fa-cart-shopping"></i>
+                          )}
                         </button>
 
-  
                         <button
                           className="w-7 sm:w-8 h-7 sm:h-8 cursor-pointer bg-white rounded-[4px] flex items-center justify-center hover:bg-green-50 transition-colors"
                           onClick={(e) => {
@@ -235,7 +259,9 @@ const ProductsSection = () => {
                   <button
                     key={num}
                     className={`w-7 h-7 sm:w-8 sm:h-8 text-[10px] sm:text-xs rounded flex items-center justify-center font-medium ${
-                      num === 1 ? "bg-green-600 text-white" : "bg-white border border-gray-300"
+                      num === 1
+                        ? "bg-green-600 text-white"
+                        : "bg-white border border-gray-300"
                     }`}
                   >
                     {num}
@@ -246,7 +272,6 @@ const ProductsSection = () => {
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
